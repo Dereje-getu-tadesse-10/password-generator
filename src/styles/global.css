@@ -14,7 +14,6 @@
 }
 
 .range-slider{
-    @apply bg-green-700 !important;
 }
 
 .range-slider .range-slider__thumb{

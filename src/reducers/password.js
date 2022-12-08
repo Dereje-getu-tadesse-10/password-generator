@@ -36,6 +36,11 @@ export const passwordReducer = (state, action) => {
                 ...state,
                 bgColor: action.payload
             }
+        case 'FORCE_UPDATE':
+            return {
+                ...state,
+                force: action.payload
+            }
         default:
             return state
     }

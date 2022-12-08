@@ -41,19 +41,28 @@ export default function Home() {
     const onLength = (e) => {
         dispatch({
             type: 'LENGTH',
-            payload: e.target.value
+            payload: e[1]
         })
-        if(e.target.value < 10) {
+        if(e[1] < 9) {
             dispatch({
                 type: 'BG_COLOR',
-                payload: "bg-red-500"
+                payload: "bg-red-700"
+            })
+            dispatch({
+                type: 'FORCE_UPDATE',
+                payload: "MOYEN"
             })
         } else {
             dispatch({
                 type: 'BG_COLOR',
                 payload: "bg-green-800"
             })
+            dispatch({
+                type: 'FORCE_UPDATE',
+                payload: "FORT"
+            })
         }
+        console.log(password)
     }
 
     const generatePassword = () => {
@@ -96,11 +105,12 @@ const initalState = {
     maxLength: 50,
     minLength: 8,
     length: 16,
-    uppercase: false,
+    uppercase: true,
     lowercase: false,
     numbers: false,
     symbols: true,
     bgColor: 'bg-green-800',
+    force: 'FORT',
     copy: false,
 }
 
