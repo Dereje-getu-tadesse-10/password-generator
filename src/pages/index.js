@@ -2,6 +2,7 @@ import * as React from "react"
 import {useEffect, useReducer} from "react"
 import {passwordReducer} from "../reducers/password";
 import {passwordOptions} from "../Function/funcs";
+import {Generator} from "../components/Generator/generator";
 
 export default function Home() {
 
@@ -20,7 +21,6 @@ export default function Home() {
             type: 'LOWERCASE',
             payload: e.target.checked
         })
-        console.log(e.target.checked)
     }
 
     const onNumbers = (e) => {
@@ -36,7 +36,6 @@ export default function Home() {
             type: 'SYMBOLS',
             payload: e.target.checked
         })
-        console.log(e.target.checked)
     }
 
     const onLength = (e) => {
@@ -52,10 +51,9 @@ export default function Home() {
         } else {
             dispatch({
                 type: 'BG_COLOR',
-                payload: "bg-green-500"
+                payload: "bg-green-800"
             })
         }
-        console.log(e.target.value)
     }
 
     const generatePassword = () => {
@@ -78,7 +76,15 @@ export default function Home() {
 
     return (
       <section className={`mx-auto ${password.bgColor}`}>
-            <h1>Hello</h1>
+            <Generator
+                password={password}
+                onUppercase={onUppercase}
+                onLowercase={onLowercase}
+                onNumbers={onNumbers}
+                onSymbols={onSymbols}
+                onLength={onLength}
+                generatePassword={generatePassword}
+            />
       </section>
   )
 }
@@ -94,7 +100,7 @@ const initalState = {
     lowercase: false,
     numbers: false,
     symbols: true,
-    bgColor: 'bg-green-500',
+    bgColor: 'bg-green-800',
     copy: false,
 }
 
