@@ -26,6 +26,16 @@ export const passwordReducer = (state, action) => {
                 ...state,
                 length: action.payload
             }
+        case 'GENERATE':
+            return {
+                ...state,
+                password: action.payload
+            }
+        case 'BG_COLOR':
+            return {
+                ...state,
+                bgColor: action.payload
+            }
         default:
             return state
     }

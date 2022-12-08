@@ -1,6 +1,7 @@
 import * as React from "react"
-import { useReducer} from "react";
+import {useEffect, useReducer} from "react"
 import {passwordReducer} from "../reducers/password";
+import {passwordOptions} from "../Function/funcs";
 
 export default function Home() {
 
@@ -43,40 +44,42 @@ export default function Home() {
             type: 'LENGTH',
             payload: e.target.value
         })
+        if(e.target.value < 10) {
+            dispatch({
+                type: 'BG_COLOR',
+                payload: "bg-red-500"
+            })
+        } else {
+            dispatch({
+                type: 'BG_COLOR',
+                payload: "bg-green-500"
+            })
+        }
         console.log(e.target.value)
     }
 
-  return (
-      <div className="container">
-          <input
-                type="checkbox"
-                onChange={e => onUppercase(e)}
-                defaultChecked={password.uppercase}
-          />
-            <input
-                type="checkbox"
-                onChange={e => onLowercase(e)}
-                defaultChecked={password.lowercase}
-            />
-            <input
-                type="checkbox"
-                onChange={e => onNumbers(e)}
-                defaultChecked={password.numbers}
-            />
-            <input
-                type="checkbox"
-                onChange={e => onSymbols(e)}
-                defaultChecked={password.symbols}
-            />
-            <input
-                type="range"
-                min={password.minLength}
-                max={password.maxLength}
-                onChange={e => onLength(e)}
-                value={password.length}
-                step={1}
-            />
-      </div>
+    const generatePassword = () => {
+        const options = passwordOptions(password);
+        let passwordFinal = "";
+        for (let i = 0; i < password.length; i++) {
+            const randomOption = options[Math.floor(Math.random() * options.length)];
+            passwordFinal += randomOption();
+        }
+        dispatch({
+            type: 'GENERATE',
+            payload: passwordFinal
+        })
+    }
+
+    useEffect(() => {
+        generatePassword()
+    }, [password.length, password.lowercase, password.uppercase, password.numbers, password.symbols])
+
+
+    return (
+      <section className={`mx-auto ${password.bgColor}`}>
+            <h1>Hello</h1>
+      </section>
   )
 }
 
@@ -87,10 +90,11 @@ const initalState = {
     maxLength: 50,
     minLength: 8,
     length: 16,
-    uppercase: true,
+    uppercase: false,
     lowercase: false,
-    numbers: true,
+    numbers: false,
     symbols: true,
     bgColor: 'bg-green-500',
     copy: false,
 }
+
