@@ -27,7 +27,7 @@ export const Info = () => {
     }, []);
 
     return (
-        <section className="container mx-auto px-4 ">
+        <section className="container mx-auto md:max-w-5xl px-4 ">
             <div className="my-16 w-full flex flex-col-reverse md:flex-row md:justify-between md:items-center" >
                 <div className="w-2/4 h-64 my-7 mx-auto" ref={animationContainer}></div>
                 <div className="w-full md:w-2/4">
@@ -43,7 +43,7 @@ export const Info = () => {
             <div className="my-16 w-full md:flex md:justify-between md:items-center" >
                 <div className="w-full md:w-2/4">
                     <h1 className="py-4 text-2xl font-bold text-gray-700">
-                        Générateur de mot de passe
+                        Pourquoi utiliser un générateur de mot de passe ?
                     </h1>
                     <p>
                         En utilisant un générateur de mot de passe, vous pouvez être sûr que vos mots de passe sont forts et difficiles à pirater, ce qui peut contribuer à protéger vos comptes en ligne contre les attaques de pirates informatiques.

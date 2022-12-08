@@ -7,12 +7,12 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 
-export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLength, password, generatePassword, onCopy}) => {
+export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLength, password, generatePassword}) => {
 
     const [cop, setCop] = useState(false)
 
     return (
-        <div className="py-24 px-3 sm:px-4 md:max-w-4xl mx-auto">
+        <div className="py-24 px-3 sm:px-4 md:max-w-5xl mx-auto">
             <h1 className="text-3xl font-bold text-white md:text-3xl">
                 Génère un mot de passe robuste et sécurisé !
             </h1>
