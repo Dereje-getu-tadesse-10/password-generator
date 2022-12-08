@@ -12,9 +12,9 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
     const [cop, setCop] = useState(false)
 
     return (
-        <div className="py-12 px-3 sm:px-4 md:max-w-4xl mx-auto">
-            <h1 className="text-1xl font-bold text-white md:text-3xl">
-                Génére un mot de passe robuste et sécurisé !
+        <div className="py-24 px-3 sm:px-4 md:max-w-4xl mx-auto">
+            <h1 className="text-3xl font-bold text-white md:text-3xl">
+                Génère un mot de passe robuste et sécurisé !
             </h1>
             <div>
                 <div className="py-6 md:pt-12 relative w-full relative">
@@ -56,7 +56,7 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
                 </div>
                 <div className="flex flex-col gap-3 py-7">
                     <div>
-                        <p className="text-white font-semibold">Length({password.length})</p>
+                        <p className="text-white font-semibold">Longueur du mot de passe : {password.length}</p>
                     </div>
                     <RangeSlider
                         className="single-thumb"

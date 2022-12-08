@@ -3,6 +3,8 @@ import {useEffect, useReducer} from "react"
 import {passwordReducer} from "../reducers/password";
 import {passwordOptions} from "../Function/funcs";
 import {Generator} from "../components/Generator/generator";
+import {Info} from "../components/Info/Info";
+import {Layout} from "../Layout/Layoyt";
 
 export default function Home() {
 
@@ -83,17 +85,20 @@ export default function Home() {
 
 
     return (
-      <section className={`mx-auto ${password.bgColor}`}>
-            <Generator
-                password={password}
-                onUppercase={onUppercase}
-                onLowercase={onLowercase}
-                onNumbers={onNumbers}
-                onSymbols={onSymbols}
-                onLength={onLength}
-                generatePassword={generatePassword}
-            />
-      </section>
+        <Layout>
+              <section className={`mx-auto ${password.bgColor}`}>
+                    <Generator
+                        password={password}
+                        onUppercase={onUppercase}
+                        onLowercase={onLowercase}
+                        onNumbers={onNumbers}
+                        onSymbols={onSymbols}
+                        onLength={onLength}
+                        generatePassword={generatePassword}
+                    />
+              </section>
+            <Info/>
+        </Layout>
   )
 }
 
@@ -111,4 +116,6 @@ const initalState = {
     bgColor: 'bg-green-800',
     force: 'FORT',
 }
+
+
 
