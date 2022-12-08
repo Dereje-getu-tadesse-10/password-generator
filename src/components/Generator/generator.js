@@ -1,12 +1,15 @@
 import * as React from "react"
+import {useState} from "react"
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 
 
+export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLength, password, generatePassword, onCopy}) => {
 
-export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLength, password, generatePassword}) => {
+    const [cop, setCop] = useState(false)
 
     return (
         <div className="py-12 px-3 sm:px-4 md:max-w-4xl mx-auto">
@@ -21,7 +24,7 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
                         readOnly={true}
                         aria-readonly={true}
                         defaultValue={password.password}
-                        className="w-full  h-16 bg-inherit text-white font-semibold outline-none tracking-wider md:text-2xl"
+                        className="w-full h-16 bg-inherit text-white font-semibold outline-none tracking-wider md:text-2xl"
                     />
                     <button
                         className={`absolute px-4 py-2 z-20 right-0 bottom-11 ${password.bgColor}`}
@@ -33,8 +36,23 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
                     </button>
                     <div className="w-full border-b-2 border-white h-[2px]"></div>
                 </div>
-                <div className="text-white">
-                    <p>Force du mot de passe : <span className="font-semibold">{password.force}</span></p>
+                <div className="text-white flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+                    <div>
+                        <p className="font-medium">Force du mot de passe : <span className="font-semibold">{password.force}</span></p>
+                    </div>
+                    <div>
+                        <CopyToClipboard text={password.password} onCopy={()=>{
+                            setCop(true)
+                            setTimeout(() => {
+                                setCop(false)
+                            }, 2000);
+                        }}>
+                            <button className="bg-white text-gray-900 text-1xl font-semibold px-4 py-4 rounded-md w-full md:w-max"
+                            >
+                                {cop ? "Copié !" : "Copier le mot de passe"}
+                            </button>
+                        </CopyToClipboard>
+                    </div>
                 </div>
                 <div className="flex flex-col gap-3 py-7">
                     <div>

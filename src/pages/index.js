@@ -7,7 +7,6 @@ import {Generator} from "../components/Generator/generator";
 export default function Home() {
 
     const [password, dispatch] = useReducer(passwordReducer,initalState)
-
     const onUppercase = (e) => {
         dispatch({
             type: 'UPPERCASE',
@@ -80,7 +79,7 @@ export default function Home() {
 
     useEffect(() => {
         generatePassword()
-    }, [password.length, password.lowercase, password.uppercase, password.numbers, password.symbols])
+    }, [password.length, password.lowercase, password.uppercase, password.numbers, password.symbols, password.copy])
 
 
     return (
@@ -111,6 +110,5 @@ const initalState = {
     symbols: true,
     bgColor: 'bg-green-800',
     force: 'FORT',
-    copy: false,
 }
 
