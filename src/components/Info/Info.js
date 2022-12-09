@@ -27,7 +27,7 @@ export const Info = () => {
     }, []);
 
     return (
-        <section className="container mx-auto md:max-w-6xl px-4 ">
+        <section className="container mx-auto px-4 md:max-w-5xl md:px-0">
             <div className="my-16 w-full flex flex-col-reverse md:flex-row md:justify-between md:items-center" >
                 <div className="w-2/4 h-64 my-7 mx-auto" ref={animationContainer}></div>
                 <div className="w-full md:w-2/4">
