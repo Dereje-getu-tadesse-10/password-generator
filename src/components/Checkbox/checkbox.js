@@ -10,7 +10,7 @@ export const Checkbox = ({label, checked, onChange, disabled}) => {
                 onChange={onChange}
                 disabled={disabled}
             />
-            <label htmlFor={label} className="ml-2 text-white cursor-pointer">
+            <label htmlFor={label} className="ml-2 text-white font-medium tracking-[.1px] cursor-pointer">
                 {label}
             </label>
         </div>

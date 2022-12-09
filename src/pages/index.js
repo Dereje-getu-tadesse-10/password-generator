@@ -62,7 +62,6 @@ export default function Home() {
                 payload: "FORT"
             })
         }
-        console.log(password)
     }
 
     const generatePassword = () => {
@@ -107,7 +106,7 @@ const initalState = {
     password: '',
     defaultLength: 16,
     maxLength: 50,
-    minLength: 8,
+    minLength: 4,
     length: 16,
     uppercase: true,
     lowercase: false,

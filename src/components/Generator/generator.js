@@ -19,8 +19,8 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
 
     return (
         <div className="py-24 px-3 sm:px-4 md:max-w-5xl mx-auto">
-            <h1 className="text-3xl font-bold text-white md:text-3xl">
-                Génère un mot de passe robuste et sécurisé !
+            <h1 className="text-3xl font-semibold text-white md:text-4xl tracking-[1.2px]">
+                Facilitez votre sécurité en ligne avec notre générateur de mot de passe
             </h1>
             <div>
                 <div className="py-6 md:pt-12 relative w-full relative">

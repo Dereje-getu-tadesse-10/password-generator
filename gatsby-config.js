@@ -10,7 +10,7 @@
 module.exports = {
     siteMetadata: {
         title: "Générateur de mot de passe",
-        description: "Générateur de mot de passe",
+        description: "Protégez vos comptes en ligne avec des mots de passe sécurisés grâce à notre générateur de mot de passe facile à utiliser et fiable",
         author:"Dereje Getu Tadesse",
     },
   plugins: [
