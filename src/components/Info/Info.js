@@ -27,14 +27,14 @@ export const Info = () => {
     }, []);
 
     return (
-        <section className="container mx-auto md:max-w-5xl px-4 ">
+        <section className="container mx-auto md:max-w-6xl px-4 ">
             <div className="my-16 w-full flex flex-col-reverse md:flex-row md:justify-between md:items-center" >
                 <div className="w-2/4 h-64 my-7 mx-auto" ref={animationContainer}></div>
                 <div className="w-full md:w-2/4">
                     <h1 className="py-4 text-2xl font-bold text-gray-700">
                         Pourquoi crée un mot de pass robuste ?
                     </h1>
-                    <p className="text-lg">
+                    <p className="text-lg text-justify">
                         Il est important d'avoir un mot de passe robuste pour protéger la sécurité de vos comptes en ligne. Un mot de passe fort est moins susceptible d'être deviné ou piraté. Pour créer un mot de passe robuste, il faut choisir un mot de passe difficile à deviner et différent des autres mots de passe. Il est également important de changer régulièrement vos mots de passe et d'utiliser des outils de gestion pour les gérer et les protéger.
                     </p>
                 </div>
@@ -45,7 +45,7 @@ export const Info = () => {
                     <h1 className="py-4 text-2xl font-bold text-gray-700">
                         Pourquoi utiliser un générateur de mot de passe ?
                     </h1>
-                    <p>
+                    <p className="text-lg text-justify">
                         En utilisant un générateur de mot de passe, vous pouvez être sûr que vos mots de passe sont forts et difficiles à pirater, ce qui peut contribuer à protéger vos comptes en ligne contre les attaques de pirates informatiques.
                     </p>
                 </div>

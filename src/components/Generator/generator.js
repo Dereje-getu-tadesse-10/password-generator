@@ -3,13 +3,19 @@ import {useState} from "react"
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-
-
+import {Checkbox} from "../Checkbox/checkbox";
 
 
 export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLength, password, generatePassword}) => {
 
-    const [cop, setCop] = useState(false)
+    const [copy, setCopy] = useState(false)
+
+    const onCopy = () => {
+        setCopy(true)
+        setTimeout(() => {
+            setCopy(false)
+        }, 2000);
+    }
 
     return (
         <div className="py-24 px-3 sm:px-4 md:max-w-5xl mx-auto">
@@ -41,15 +47,10 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
                         <p className="font-medium">Force du mot de passe : <span className="font-semibold">{password.force}</span></p>
                     </div>
                     <div>
-                        <CopyToClipboard text={password.password} onCopy={()=>{
-                            setCop(true)
-                            setTimeout(() => {
-                                setCop(false)
-                            }, 2000);
-                        }}>
+                        <CopyToClipboard text={password.password} onCopy={onCopy}>
                             <button className="bg-white text-gray-900 text-1xl font-semibold px-4 py-4 rounded-md w-full md:w-max"
                             >
-                                {cop ? "Copié !" : "Copier le mot de passe"}
+                                {copy ? "Copié !" : "Copier le mot de passe"}
                             </button>
                         </CopyToClipboard>
                     </div>
@@ -72,41 +73,16 @@ export const Generator = ({onUppercase, onLowercase, onSymbols, onNumbers, onLen
                 </div>
                 <div className="flex flex-wrap gap-4 md:justify-between">
                     <div className="flex items-center">
-                        <input
-                            type="checkbox" id="majuscule" className="w-6 h-6 cursor-pointer"
-                            checked={password.uppercase}
-                            onChange={onUppercase}
-                        />
-                        <label htmlFor="majuscule" className="ml-2 text-white cursor-pointer">
-                            Utiliser des majuscules
-                        </label>
+                        <Checkbox label="Utiliser des majuscules" checked={password.uppercase} onChange={onUppercase}/>
                     </div>
                     <div className="flex items-center">
-                        <input type="checkbox" id="minuscule" className="w-6 h-6 cursor-pointer"
-                            checked={password.lowercase}
-                            onChange={onLowercase}
-                        />
-                        <label htmlFor="minuscule" className="ml-2 text-white cursor-pointer">
-                            Utiliser des minuscules
-                        </label>
+                        <Checkbox label="Utiliser des minuscules" checked={password.lowercase} onChange={onLowercase}/>
                     </div>
                     <div className="flex items-center">
-                            <input type="checkbox" id="chiffres" className="w-6 h-6 cursor-pointer"
-                                checked={password.numbers}
-                                onChange={onNumbers}
-                            />
-                            <label htmlFor="chiffres" className="ml-2 text-white cursor-pointer">
-                                Utiliser des chiffres
-                            </label>
+                        <Checkbox label="Utiliser des chiffres" checked={password.numbers} onChange={onNumbers}/>
                     </div>
                     <div className="flex items-center">
-                        <input type="checkbox" id="symboles" className="w-6 h-6 cursor-not-allowed"
-                            checked={password.symbols}
-                            onChange={onSymbols} disabled={true}
-                        />
-                        <label htmlFor="symboles" className="ml-2 text-white cursor-not-allowed">
-                            Utiliser des symboles
-                        </label>
+                        <Checkbox label="Utiliser des symboles" checked={password.symbols} onChange={onSymbols} disabled={true}/>
                     </div>
                 </div>
             </div>
