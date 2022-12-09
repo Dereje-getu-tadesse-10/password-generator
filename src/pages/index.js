@@ -1,7 +1,6 @@
 import * as React from "react"
 import {useEffect, useReducer} from "react"
 import {passwordReducer} from "../reducers/password";
-import {passwordOptions} from "../Function/funcs";
 import {Generator} from "../components/Generator/generator";
 import {Info} from "../components/Info/Info";
 import {Layout} from "../Layout/Layoyt";
@@ -79,6 +78,7 @@ export default function Home() {
         })
     }
 
+
     useEffect(() => {
         generatePassword()
     }, [password.length, password.lowercase, password.uppercase, password.numbers, password.symbols, password.copy])
@@ -117,5 +117,23 @@ const initalState = {
     force: 'FORT',
 }
 
+const randomSpecialChar = () => String.fromCharCode(33 + Math.floor(Math.random() * 15));
 
+const randomLowercase = () =>  String.fromCharCode(97 + Math.floor(Math.random() * 26));
+
+const randomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+
+const randomNumber = () => String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+
+export const passwordOptions = (password) => {
+    const optionsChecked = [password.lowercase, password.uppercase, password.numbers, password.symbols];
+    const options = [randomLowercase, randomUppercase, randomNumber, randomSpecialChar];
+    const optionsArray = [];
+    optionsChecked.forEach((option, index) => {
+        if (option) {
+            optionsArray.push(options[index])
+        }
+    })
+    return optionsArray;
+}
 
