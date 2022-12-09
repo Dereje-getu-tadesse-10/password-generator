@@ -1,12 +1,14 @@
 
-### Générateur de mot de passe
+# Générateur de mot de passe
 
-[![Foo](./passpass.png)](https://pass-liard.vercel.app/)
-
---- 
-## Techno 
+## Techno
 - Gatsby
 - ReactJs
 - TailwindCss <3
+
+--- 
+[![Foo](./passpass.png)](https://pass-liard.vercel.app/)
+
+
 
 
